@@ -1,0 +1,65 @@
+
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quinta Serie - Práctico 4 · Ejercicio 04</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h2>🏷️ Ejercicio 04: ¿Está dentro de los rangos válidos?</h2>
+
+    <div class="instrucciones">
+      <h3>📋 Instrucciones</h3>
+      <p>Comprobaremos si una variable <strong>valor</strong> se encuentra en alguno de los dos rangos válidos:</p>
+      <ul>
+        <li>100 a 300</li>
+        <li>500 a 800</li>
+      </ul>
+      <p>Si el valor está en alguno de ellos → ✅ mensaje positivo.<br>
+         Si no está en ninguno → ❌ mensaje negativo.</p>
+    </div>
+
+  
+    <div id="mensaje" class="resultado" aria-live="polite">Haz clic en "Ejecutar" para verificar.</div>
+
+   
+    <button id="btnEjecutar" class="btn" type="button">¡Ejecutar Ejercicio!</button>
+
+    <footer>Curso de JavaScript · Enseñanza Media | Ejercicio 04</footer>
+  </div>
+
+
+  <script>
+    function verificarRangos() {
+
+      let valor = 900; 
+      let mensaje = document.getElementById('mensaje');
+
+
+      mensaje.classList.remove('mensaje-correcto', 'mensaje-incorrecto');
+
+      // comprobamos con operador lógico OR (||)
+      if ((valor >= 100 && valor <= 300) || (valor >= 500 && valor <= 800)) {
+        mensaje.innerText = '✅ Dentro de rango: el valor ' + valor + ' está en los rangos válidos (100-300 o 500-800).';
+        mensaje.classList.add('mensaje-correcto');
+        console.log('verificarRangos(): valor = ' + valor + ' → DENTRO de los rangos válidos.');
+      } else {
+        mensaje.innerText = '❌ Fuera de rango: el valor ' + valor + ' no pertenece a ninguno de los rangos.';
+        mensaje.classList.add('mensaje-incorrecto');
+        console.log('verificarRangos(): valor = ' + valor + ' → FUERA de los rangos válidos.');
+      }
+    }
+
+
+    let btnEjecutar = document.getElementById('btnEjecutar');
+    btnEjecutar.onclick = verificarRangos;
+
+
+    console.log('Script cargado: botón #btnEjecutar enlazado a verificarRangos; listo para ejecutar.');
+  </script>
+</body>
+</html>
